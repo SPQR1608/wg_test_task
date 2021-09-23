@@ -1,0 +1,62 @@
+=== CPP Circular buffer check ===
+Size: 0, Capacity: 10
+Put 1, val: 1
+Popped: 1
+Empty: 1
+Adding 9 values
+Full: 0
+Adding 10 values
+Full: 1
+Reading back values: 0 1 2 3 4 5 6 7 8 9
+Adding 15 values
+Full: 1
+Reading back values: 5 6 7 8 9 10 11 12 13 14
+Empty: 1
+Full: 0
+
+ === CPP Circular buffer thread check ===
+1
+5
+0
+7
+9
+11
+
+ === CPP Circular buffer list check ===
+Size: 0, Capacity: 15
+Put 1, val: 1
+Popped: 1
+Empty: 1
+Adding 14 values
+Full: 0
+Adding 15 values
+Full: 1
+Reading back values: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+Adding 20 values
+Full: 0
+Reading back values: 14 15 16 17 18 19 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+Empty: 1
+Full: 0
+-------------------------------------------------
+---------- quick sort ---------------------------
+-------------------------------------------------
+0 seconds
+221 miliseconds
+221105 microseconds
+221105700 nanoseconds
+
+-------------------------------------------------
+---------- quick sort median ---------------------------
+-------------------------------------------------
+0 seconds
+219 miliseconds
+219095 microseconds
+219095900 nanoseconds
+
+-------------------------------------------------
+---------- heap sort ---------------------------
+-------------------------------------------------
+0 seconds
+399 miliseconds
+399897 microseconds
+399897800 nanoseconds
