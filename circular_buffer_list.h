@@ -13,18 +13,13 @@ template<class T, size_t Size>
 class circular_buffer_list
 {
 public:
-    explicit circular_buffer_list()
+    circular_buffer_list()
     {
         head_ = tail_ = buf_;
         for (size_t i = 0; i < Size - 1; ++i)
             buf_[i].next = &buf_[i + 1];
 
         buf_[Size - 1].next = &buf_[0];
-    }
-
-    ~circular_buffer_list()
-    {
-        
     }
 
     void put(T value)
