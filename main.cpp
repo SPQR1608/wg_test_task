@@ -161,7 +161,7 @@ void sort_test()
 		printf("---------- quick sort median ---------------------------\n");
 		auto quick_time_start = get_time();
 
-		wg_test_sort::better::hybrid_sort(v.data(), 0, static_cast<int>(v.size()) - 1);
+		wg_test_sort::better::quick_sort_median(v.data(), 0, static_cast<int>(v.size()) - 1);
 
 		auto quick_time_end = get_time();
 		print_difference(quick_time_start, quick_time_end);
@@ -183,8 +183,5 @@ void sort_test()
 
 		auto quick_time_end = get_time();
 		print_difference(quick_time_start, quick_time_end);
-
-		/*for (int i = 0; i < size; ++i)
-			printf("%d\t", v[i]);*/
 	}
 }

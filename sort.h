@@ -85,35 +85,13 @@ namespace wg_test_sort
         }
 
         template <class T>
-        int partition(T aArray[], int lo, int hi)
-        {
-            int i = lo;
-            int j = hi + 1;
-            int v = aArray[lo];
-            while (true)
-            {
-                while (aArray[++i] < v)
-                    if (i == hi) break;
-
-                while (v < aArray[--j])
-                    if (j == lo) break;         
-
-                if (i >= j) break;
-
-                swap(aArray[i], aArray[j]);
-            }
-            swap(aArray[lo], aArray[j]);
-            return j;
-        }
-
-        template <class T>
-        void insertion(T aArray[], int l, int r)
+        void insertion(T aArray[], int aL, int aR)
         {
             int i;
-            for (i = r; i > l; i--) 
+            for (i = aR; i > aL; i--)
                 compare(aArray[i - 1], aArray[i]);
 
-            for (i = l + 2; i <= r; i++)
+            for (i = aL + 2; i <= aR; i++)
             {
                 int j = i; int v = aArray[i];
                 while (v < aArray[j - 1])
@@ -125,30 +103,49 @@ namespace wg_test_sort
             }          
         }
 
+        template<class T>
+        int partition(T aArray[], int aL, int aR)
+        {
+            int i = aL - 1;
+            int j = aR;
+            T v = aArray[aR];
+            while (true)
+            {
+                while (aArray[++i] < v)
+                    ;
+
+                while (v < aArray[--j])
+                    if (j == aL)
+                        break;
+
+                if (i >= j)
+                    break;
+
+                swap(aArray[i], aArray[j]);
+            }
+
+            swap(aArray[i], aArray[aR]);
+            return i;
+        }
+
         static const int M = 10;
 
         template <class T>
-        void quick_sort_median(T aArray[], int l, int r)
+        void quick_sort_median(T aArray[], int aL, int aR)
         {
-            if (r - l <= M)
+            if (aR - aL <= M)
             {
-                insertion(aArray, l, r);
+                insertion(aArray, aL, aR);
                 return;
             }
 
-            swap(aArray[(l + r) / 2], aArray[r - 1]);
-            compare(aArray[l], aArray[r - 1]);
-            compare(aArray[l], aArray[r]);
-            compare(aArray[r - 1], aArray[r]);
-            int i = partition(aArray, l, r);
-            quick_sort_median(aArray, l, i - 1);
-            quick_sort_median(aArray, i + 1, r);
-        }
-
-        template <class T>
-        void hybrid_sort(T aArray[], int l, int r)
-        {
-            quick_sort_median(aArray, l, r);            
+            swap(aArray[(aL + aR) / 2], aArray[aR - 1]);
+            compare(aArray[aL], aArray[aR - 1]);
+            compare(aArray[aL], aArray[aR]);
+            compare(aArray[aR - 1], aArray[aR]);
+            int i = partition(aArray, aL + 1, aR - 1);
+            quick_sort_median(aArray, aL, i - 1);
+            quick_sort_median(aArray, i + 1, aR);
         }
     }
 
