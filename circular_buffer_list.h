@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <vector>
 
 template<class T>
 struct Node
