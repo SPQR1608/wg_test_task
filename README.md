@@ -44,8 +44,8 @@ bool isEven(int value) { return (value & 1) == 0; }
 </details>
 
 Циклический буфер: 
-- через индексы - [ссылка](https://github.com/SPQR1608/wg_test_task/blob/main/circular_buffer_list.h);
-- помощью связных списков - [ссылка](https://github.com/SPQR1608/wg_test_task/blob/main/circular_buffer_thread_safe.h);
+- через индексы - [ссылка](https://github.com/SPQR1608/wg_test_task/blob/main/circular_buffer_thread_safe.h);
+- помощью связных списков - [ссылка](https://github.com/SPQR1608/wg_test_task/blob/main/circular_buffer_list.h);
 
 В реализации циклического буфера через индексы можно выделить следующие плюсы - это поддержка многопоточности 
 и отсутствие Race condition, т.к. потоки сихнронизированы, запись и чтение выполняется в правильном порядке.
